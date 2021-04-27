@@ -46,8 +46,8 @@ effect {
 #squ1 {  width: 436px;  height: 171px;  opacity: 31%;  transform: rotate(57deg);  background-color: darkslateblue;  top: 215px;  left: 365px;  z-index: -5;  position: absolute; }
 #squ2 {  width: 291px;  height: 458px;  opacity: 31%;  transform: rotate(22deg);  background-color: mintcream;  top: 173px;  left: 1273px;  z-index: -3;  position: absolute; }
 #squ3 {  width: 383px;  height: 173px;  opacity: 46%;  transform: rotate(17deg);  background-color: crimson;  top: 452px;  left: 714px;  z-index: -1;  position: absolute; }
-#squ4 {  width: 381px;  height: 208px;  opacity: 27%;  transform: rotate(24deg);  background-color: violet;  top: 275px;  left: 1392px;  z-index: 1;  position: absolute; }
-#squ5 {  width: 247px;  height: 206px;  opacity: 58%;  transform: rotate(28deg);  background-color: lightcoral;  top: 451px;  left: 122px;  z-index: -3;  position: absolute; }
+#squ4 {  width: 381px;  height: 208px;  opacity: 27%;  transform: rotate(24deg);  background-color: violet;  top: 275px;  left: 1592px;  z-index: 1;  position: absolute; }
+#squ5 {  width: 247px;  height: 206px;  opacity: 58%;  transform: rotate(28deg);  background-color: lightcoral;  top: 451px;  left: -22px;  z-index: -3;  position: absolute; }
 
 #cir1 {  width: 100px;  height: 100px;  opacity: 55%;  background-color: lightyellow; top: 786px;  left: 1152px;  z-index: -4;  border-radius: 50%;  position: absolute; }
 #cir2 {  width: 265px;  height: 246px;  opacity: 31%;  background-color: turquoise; top: 164px;  left: 621px;  z-index: -2;  border-radius: 50%;  position: absolute; }
