@@ -52,9 +52,9 @@ effect {
 #cir1 {  width: 100px;  height: 100px;  opacity: 55%;  background-color: lightyellow; top: 786px;  left: 1152px;  z-index: -4;  border-radius: 50%;  position: absolute; }
 #cir2 {  width: 265px;  height: 246px;  opacity: 31%;  background-color: turquoise; top: 164px;  left: 621px;  z-index: -2;  border-radius: 50%;  position: absolute; }
 #cir3 {  width: 175px;  height: 173px;  opacity: 25%;  background-color: bisque; top: 541px;  left: 467px;  z-index: 0;  border-radius: 50%;  position: absolute; }
-#cir4 {  width: 312px;  height: 300px;  opacity: 29%;  background-color: plum; top: 245px;  left: 164px;  z-index: 2;  border-radius: 50%;  position: absolute; }
+#cir4 {  width: 323px;  height: 312px;  opacity: 29%;  background-color: plum; top: 245px;  left: 164px;  z-index: 2;  border-radius: 50%;  position: absolute; }
 #cir5 {  width: 198px;  height: 189px;  opacity: 13%;  background-color: rgb(255, 224, 166); top: 427px;  left: 1200px;  z-index: 4;  border-radius: 50%;  position: absolute; }
-
+#cir6 {  width: 254px;  height: 245px;  opacity: 13%;  background-color: hotpink; top: 427px;  left: 1750px;  z-index: 4;  border-radius: 50%;  position: absolute; }
 
 h1.loading {
     font-size: 60px;
@@ -66,12 +66,12 @@ h1.loading {
     top: 47%;
     text-align: center;
     opacity: 0;
-    animation: load 1.5s ease-in-out;
+    animation: loading 1.5s ease-in-out;
     animation-iteration-count: 7;
     z-index: 10;
 } /* 가운데 정렬하는 법: 출처: https://webdir.tistory.com/31 [WEBDIR] width와 margin left */
 
-@keyframes load {
+@keyframes loading {
     from { opacity: 100%; }
     50% { opacity: 5%; }
     100% { opacity: 100%; }

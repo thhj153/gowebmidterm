@@ -8,7 +8,7 @@
     </link>
     <script src="./jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="./jquery-ui.min.js">
-    // https://superkts.com/jquery/@easingEffects 에서 정보를 얻고, 추가 다운로드
+    // https://superkts.com/jquery/@easingEffects 에서 정보를 얻어서 jquery-ui.min.js 추가 다운로드
     </script>
     <script>
 
@@ -17,19 +17,15 @@
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }); // 스크롤 방지 코드 https://webisfree.com/2015-01-13/[%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-jquery]-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%95%88-%EC%9B%80%EC%A7%81%EC%9D%B4%EA%B2%8C-%EB%A7%89%EA%B8%B0-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B3%A0%EC%A0%95
+        }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
 
         $(document).ready(function () {
             $(document).on("click", function (event) {
-                $("effect").animate({
-                    top: (event.pageY - 15),
-                    left: (event.pageX - 15)
-                },
-                    1, function (event) {
-                        $("effect").animate({ opacity: "1" }, 200, function (event) {
-                            $("effect").animate({ opacity: "0" }, 300);
-                        });
+                $("effect").animate({ top: (event.pageY - 15), left: (event.pageX - 15) }, 1, function (event) {
+                    $("effect").animate({ opacity: "1" }, 200, function (event) {
+                        $("effect").animate({ opacity: "0" }, 300);
                     });
+                });
             }); // https://api.jquery.com/event.pageX/ 에서 수정
 
             $("div.shape").click(function () {
@@ -41,9 +37,16 @@
 
             $(document).on("dblclick", function (event) {
                 $("div.shape").animate({
-                    top: 900
+                    top: 930
                 }, 2000, 'easeOutBounce');
             });
+
+            setTimeout(function () {
+                $("h3.egg").fadeOut();
+                $("div.shape").animate({ top: -80 }, 800, 'swing', function (event) {
+                    $("div.shape").animate({ top: 930 }, 1800, 'easeOutBounce');
+                });
+            }, 13200)
         });
     </script>
 </head>
@@ -61,11 +64,11 @@
     <div class=shape id=cir3></div>
     <div class=shape id=cir4></div>
     <div class=shape id=cir5></div>
-
+    <div class=shape id=cir6></div>
     <effect opacity=0%;></effect>
-    <h1 class=loading>L O A D I N G . . . </h1>
+    <h1 class=loading style="cursor:default">L O A D I N G . . . </h1>
     <div class=line>
-        <h3 class=egg>도형들을&nbsp;눌러보세요.&nbsp;&nbsp;화면을&nbsp;더블클릭해보세요.</h3>
+        <h3 class=egg style="cursor:default">도형들을&nbsp;클릭해보세요.&nbsp;&nbsp;화면을&nbsp;더블클릭해보세요.</h3>
     </div>
 
 </body>
