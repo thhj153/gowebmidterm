@@ -237,7 +237,7 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
 }
 
 .typing {
-    position: relative;
+    position: absolute;
     font-family: SEBANG_Gothic_Bold;
     top: 93%;
     left: 420px;
@@ -250,12 +250,15 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
 }
 
 .submit {
+    font-family: SEBANG_Gothic_Bold;
     position: absolute;
     top: 93%;
     left: 650px;
     background-color: darkgreen;
     width: 50px;
     height: 39px;
+    font-size: 16px;
+    color: whitesmoke;
     border: 4px brown inset;
 }
 
@@ -263,34 +266,17 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
     border: 4px brown outset;
 }
 
-
-
-#questionmark {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid aliceblue;
-    background-color: aqua;
-    left: 20px;
-    top: 50px;
-}
-
-#history {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid aliceblue;
-    background-color: aqua;
-    left: 20px;
-    top: 150px;
-}
-
 .a {
     background-color: rgba(7, 6, 12, 0.842);
 }
 
+.ap {
+    background-color: rgba(14, 12, 24, 0.842);
+}
+
+.an {
+    background-color: rgba(51, 44, 85, 0.842);
+}
 .chart {
     font-family: SEBANG_Gothic_Bold;
     font-size: 20px;
@@ -329,4 +315,109 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
     height: 45px;
     line-height: 45px;
     margin: 10px;
+}
+
+#dice20_1 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 4;
+}
+
+#dice20_2 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 5;
+}
+
+#dice20_3 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 6;
+}
+
+#dice20_4 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 7;
+}
+
+#dice20_5 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 8;
+}
+
+#dice6_1 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 4;
+}
+
+#dice6_2 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 5;
+}
+
+#dice6_3 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 6;
+}
+
+#dice6_4 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0%;
+    top: 50px;
+    z-index: 7;
+}
+
+#dice6_5 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    left: 0px;
+    top: 50px;
+    z-index: 8;
+}
+
+.fix {
+    background: radial-gradient(aliceblue 10%, crimson 40%, aliceblue 50%,crimson 70%);
+    border-radius: 10%;
 }
