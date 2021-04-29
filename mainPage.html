@@ -10,7 +10,10 @@
     </link>
 
     <script src="./jquery-3.6.0.min.js"></script>
-     
+    <script type="text/javascript" src="./jquery-ui.min.js">
+        // https://superkts.com/jquery/@easingEffects 에서 정보를 얻어서 jquery-ui.min.js 추가 다운로드
+    </script>
+
     <script>
         $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
         $('#element').on('scroll touchmove mousewheel', function (event) {
@@ -18,6 +21,48 @@
             event.stopPropagation();
             return false;
         }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
+
+        $(document).ready(function () {
+            // $("div.footer").hide();
+
+            $("table.chart").hide();
+            $(".typing").hide();
+            $(".submit").hide();
+            $("div.tool").hide();
+            $("#dicechoose").hide();
+            $(".ok").click(function () {
+                $(".ok").hide();
+                $(".howtoplay").hide();
+                $("#dicechoose").fadeIn();
+            });
+
+            $("#d6play").click(function () {
+                var base = 6
+                $("#dicechoose").hide();
+                $(".gametable").animate({ left: 1700 }, 1000, 'easeOutBounce', function (event) {
+                    $("table.chart").show();
+                    $(".chart").animate({ left: 150 }, 500, 'easeInQuart', function (event) {
+                        $(".typing").show();
+                        $(".submit").show();
+
+                    });
+                });
+            });
+
+            $("#d20play").click(function () {
+                var base = 20
+                $("#dicechoose").hide();
+                $(".gametable").animate({ left: 1700 }, 1000, 'easeOutBounce', function (event) {
+                    $("table.chart").show();
+                    $(".chart").animate({ left: 150 }, 500, 'easeInQuart', function (event) {
+                        $(".typing").show();
+                        $(".submit").show();
+
+                    });
+                });
+            });
+        });
+
     </script>
 
 </head>
@@ -29,13 +74,129 @@
     <div class=shape id=cir5></div>
     <div class=shape id=cir6></div>
 
-    <div class=tool id=Qmark></div>
+    <div class=tool id=questionmark></div>
     <div class=tool id=history></div>
 
-    <div class=table>
-        <div class=effect1></div>
-        <div class=effect2></div>
+    <div class=gametable>
+        <div class=howtoplay>How to Play</div>
+        <div class=ok style="cursor:default">게 임 &nbsp;시 작</div>
+
+        <table id=dicechoose>
+            <tr>
+                <caption style="font-size: 25px;">원하는 주사위를 클릭하면 게임이 시작됩니다.</caption>
+            </tr>
+            <tr>
+                <th id="d6play"><img src="./pics/D6.png"></img></th>
+                <th id="d20play"><img src="./pics/D20.png"></img></th>
+                <!-- <th></th>
+                <th></th> -->
+            </tr>
+            <tr>
+                <th>
+                    <p></p>
+                    <p>기본적인 육면체 주사위</p>
+                </th>
+                <th>
+                    <p></p>
+                    <p>대박을 노리는 이십면체</p>
+                </th>
+                <!-- <th></th>
+                <th></th> -->
+            </tr>
+        </table>
+        <input class=typing type='text' placeholder="&nbsp;영어와 숫자만 입력하세요."></input>
+        <button class=submit></button>
     </div>
+
+
+    <!-- 
+    <div class=howtoplay>
+        How to Play
+    </div> -->
+
+    <table class='chart'>
+        <tr>
+            <th class="titlecell">Categories</th>
+            <th class="titlecell">Your Score</th>
+        </tr>
+        <tr>
+            <th class='a'>Ace</th>
+            <th class='a' id='aceScore'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Deuces</th>
+            <th class='a' id='deucesScore'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Threes</th>
+            <th class='a' id='ThreeScore'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Fours</th>
+            <th class='a' id='FourScore'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Fives</th>
+            <th class='a' id='FiveScore'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Sixes</th>
+            <th class='a' id='SixSocre'>0</th>
+        </tr>
+        <th colspan="2" class='devider'>
+        </th>
+        <tr>
+            <th class='a'>Subtotal</th>
+            <th class='a' id='Subtotal'>0/63</th>
+        </tr>
+        <tr>
+            <th colspan="2" class="info">
+                Aces부터 Sixes의 총합이 63점 이상이면 보너스가 주어집니다.
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <th class='a' class='a'>+35 Bonus</th>
+            <th class='a' id='Bonus'>0</th>
+        </tr>
+        <tr>
+            <th colspan="2" class='devider'>
+            </th>
+        <tr>
+            <th class='a'>Choice</th>
+            <th class='a' id='Choice'>0</th>
+        </tr>
+        <tr>
+            <th colspan="2" class='devider'>
+            </th>
+        <tr>
+            <th class='a'>4 of a Kind</th>
+            <th class='a' id='FourCards'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Full House</th>
+            <th class='a' id='FullHouse'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Small Straight</th>
+            <th class='a' id='SStraight'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Large Straight</th>
+            <th class='a' id='LStraight'>0</th>
+        </tr>
+        <tr>
+            <th class='a'>Yacht</th>
+            <th class='a' id='Yacht'>0</th>
+        </tr>
+        <th colspan="2" class='devider'>
+        </th>
+        <tr>
+            <th class='titlecell'>Total</th>
+            <th class='titlecell' id='Total'>0</th>
+        </tr>
+
+    </table>
 
     <div class=footer style="cursor:default">
         ㅣ&emsp;&emsp;&emsp;2015111255 육태훈&nbsp; &nbsp; 고급 웹 프로그래밍&nbsp; &nbsp; 중간고사 과제
