@@ -20,6 +20,10 @@
         }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
 
         $(document).ready(function () {
+
+            // $("div.footer").hide();
+            $("div.main_title").hide();
+
             $(document).on("click", function (event) {
                 $("effect").animate({ top: (event.pageY - 15), left: (event.pageX - 15) }, 1, function (event) {
                     $("effect").animate({ opacity: "1" }, 200, function (event) {
@@ -44,14 +48,21 @@
             setTimeout(function () {
                 $("h3.egg").fadeOut();
                 $("div.shape").animate({ top: -80 }, 800, 'swing', function (event) {
-                    $("div.shape").animate({ top: 930 }, 1800, 'easeOutBounce');
+                    $("div.shape").animate({ top: 930 }, 1800, 'easeOutBounce', function (event) {
+                        $("div.main_title").fadeIn();
+                        $("div.amin_button").fadeIn();
+                    });
                 });
-            }, 13200)
+                // $("div.footer").show();
+                
+            }, 12300)
         });
     </script>
 </head>
 
 <body class=forclick>
+
+    <effect opacity=0;></effect>
 
     <div class=shape id=squ1></div>
     <div class=shape id=squ2></div>
@@ -65,11 +76,24 @@
     <div class=shape id=cir4></div>
     <div class=shape id=cir5></div>
     <div class=shape id=cir6></div>
-    <effect opacity=0%;></effect>
+    
     <h1 class=loading style="cursor:default">L O A D I N G . . . </h1>
+
     <div class=line>
         <h3 class=egg style="cursor:default">도형들을&nbsp;클릭해보세요.&nbsp;&nbsp;화면을&nbsp;더블클릭해보세요.</h3>
     </div>
+
+    <div class=footer style="cursor:default">
+        2015111255&nbsp;육태훈&nbsp;&nbsp;&nbsp;&nbsp;고급&nbsp;웹&nbsp;프로그래밍&nbsp;&nbsp;&nbsp;&nbsp;중간고사&nbsp;과제&nbsp;
+        <p></p>
+        본&nbsp;사이트는&nbsp;1920 x 1080&nbsp;에&nbsp;최적화되어&nbsp;있습니다.
+    </div>
+
+    <div class=main_title style="cursor:default">
+        제 목 미 정 <div class=sub_title style="cursor:default"> Dice Simulator </div> 
+    </div>
+
+    <img class=main_button style="cursor:click"> </img>
 
 </body>
 
