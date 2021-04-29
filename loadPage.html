@@ -12,12 +12,13 @@
     </script>
     <script>
 
+        // 스크롤 방지 코드 시작
         $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
         $('#element').on('scroll touchmove mousewheel', function (event) {
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
+        }); // 스크롤 방지 코드 종료 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
 
         $(document).ready(function () {
 
@@ -85,7 +86,7 @@
     </div>
 
     <div class=footer style="cursor:default">
-        ㅣ&emsp;&emsp;&emsp;2015111255 육태훈&nbsp; &nbsp; 고급 웹 프로그래밍&nbsp; &nbsp; 중간고사 과제 
+        ㅣ&emsp;&emsp;&emsp;2015111255 육태훈&nbsp; &nbsp; 고급 웹 프로그래밍&nbsp; &nbsp; 중간고사 과제
         &emsp;&emsp;&emsp;ㅣ&emsp;&emsp;&emsp;
         이 사이트는 1920 x 1080 에 최적화되어 있습니다.&emsp;&emsp;&emsp;ㅣ
     </div>
@@ -97,7 +98,7 @@
     <a href='mainPage.html'>
         <div class=main_button style="cursor:click"> </div>
     </a>
-    
+
 </body>
 
 </html>

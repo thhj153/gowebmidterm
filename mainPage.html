@@ -15,12 +15,13 @@
     </script>
     <!-- line 25-61 초기 설정 -->
     <script>
+        // 스크롤 방지 코드 시작
         $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
         $('#element').on('scroll touchmove mousewheel', function (event) {
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
+        }); // 스크롤 방지 코드 종료 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
 
         $(document).ready(function () {
             // $("div.footer").hide();
@@ -30,19 +31,8 @@
             $("table.chart").hide();
             $(".typing").hide();
             $(".submit").hide();
-            $("div.tool").hide();
             $("#dicechoose").hide();
-            $("#dice6_1").hide();
-            $("#dice6_2").hide();
-            $("#dice6_3").hide();
-            $("#dice6_4").hide();
-            $("#dice6_5").hide();
-
-            $("#dice20_1").hide();
-            $("#dice20_2").hide();
-            $("#dice20_3").hide();
-            $("#dice20_4").hide();
-            $("#dice20_5").hide();
+            $(".di").hide();
 
 
             $(".ok").click(function () {
@@ -97,7 +87,7 @@
                 });
             });
             // 여기까지 게임 설정하는 부분
-            
+
             // 주사위를 굴리는 부분
             $(".submit").click(function () {
                 left = parseInt($(".submit").attr('left'));
@@ -132,11 +122,11 @@
 
                         if (base == 6) {
                             var ons = './pics/D6_'
-                            if ($("#dice6_1").text() != 'fix') { obj[0] = j % base + 1 }
+                            if ($("#dice6_1").text() != 'fix') { obj[0] = (j * 36) % base + 1 }
                             $("#dice6_1").attr('src', ons.concat(obj[0], '.png'))
-                            if ($("#dice6_2").text() != 'fix') { obj[1] = k % base + 1 }
+                            if ($("#dice6_2").text() != 'fix') { obj[1] = (k * 39 * (tempTxt.length)) % base + 1 }
                             $("#dice6_2").attr('src', ons.concat(obj[1], '.png'))
-                            if ($("#dice6_3").text() != 'fix') { obj[2] = (j + k) % base + 1 }
+                            if ($("#dice6_3").text() != 'fix') { obj[2] = (4745735657 + j + tempTxt.length) % base + 1 }
                             $("#dice6_3").attr('src', ons.concat(obj[2], '.png'))
                             if ($("#dice6_4").text() != 'fix') { obj[3] = (k - j + 2361 + tempTxt.length) % base + 1 }
                             $("#dice6_4").attr('src', ons.concat(obj[3], '.png'))
@@ -147,15 +137,15 @@
                         else if (base == 20) {
                             var ons = './pics/D20_'
                             if ($("#dice20_1").text() != 'fix') { obj[0] = j % base + 1 }
-                            $("#dice6_1").attr('src', ons.concat(obj[0], '.png'))
+                            $("#dice20_1").attr('src', ons.concat(obj[0], '.png'))
                             if ($("#dice20_2").text() != 'fix') { obj[1] = k % base + 1 }
-                            $("#dice6_2").attr('src', ons.concat(obj[1], '.png'))
+                            $("#dice20_2").attr('src', ons.concat(obj[1], '.png'))
                             if ($("#dice20_3").text() != 'fix') { obj[2] = (j + k) % base + 1 }
-                            $("#dice6_3").attr('src', ons.concat(obj[2], '.png'))
+                            $("#dice20_3").attr('src', ons.concat(obj[2], '.png'))
                             if ($("#dice20_4").text() != 'fix') { obj[3] = (k - j + 2361 + tempTxt.length) % base + 1 }
-                            $("#dice6_4").attr('src', ons.concat(obj[3], '.png'))
+                            $("#dice20_4").attr('src', ons.concat(obj[3], '.png'))
                             if ($("#dice20_5").text() != 'fix') { obj[4] = (k * 25 - j * 21 - tempTxt.length) % base + 1 }
-                            $("#dice6_5").attr('src', ons.concat(obj[4], '.png'))
+                            $("#dice20_5").attr('src', ons.concat(obj[4], '.png'))
                         }
 
                         left--;
@@ -253,16 +243,20 @@
                     if ($(this).attr('id') == 'FourCards') {
                         var temps = 0;
                         var temp = 0;
-                        var checker = obj[0];
                         obj.sort()
-                        for (i = 1; i < 5; i++) {
-                            if (checker == obj[i]) { temps++; }
-                            else { cheker = obj[i] }
-                            temp += obj[i]
+                        if (obj[0] == obj[1]) {
+                            if (obj[0] == obj[3]) {
+                                for (i = 0; i < 5; i++) {
+                                    temp += obj[i]
+                                }
+                            }
                         }
-
-                        if (temps < 3) {
-                            temp = 0
+                        else {
+                            if (obj[1] == obj[4]) {
+                                for (i = 0; i < 5; i++) {
+                                    temp += obj[i]
+                                }
+                            }
                         }
                     }
 
@@ -270,50 +264,53 @@
                         var temp = 0;
                         obj.sort()
                         if (obj[0] - obj[1] == 0) {
-                            if (obj[2] - obj[3] == 0 && obj[2] == obj[4])
-                                for (i = 0; i < 5; i++)
+                            if (obj[2] == obj[3] && obj[3] == obj[4] && obj[4] == obj[2]) {
+                                for (i = 0; i < 5; i++) {
                                     temp += obj[i]
+                                }
+                            }
                         }
 
-                        else if (obj[3] - obj[4] == 0) {
-                            if (obj[0] - obj[1] == 0 && obj[0] == obj[2])
-                                for (i = 0; i < 5; i++)
+                        if (obj[0] == obj[1] && obj[1] == obj[2] && obj[2] == obj[0]) {
+                            if (obj[3] == obj[4]) {
+                                for (i = 0; i < 5; i++) {
                                     temp += obj[i]
+                                }
+                            }
                         }
                     }
 
                     if ($(this).attr('id') == 'SStraight') {
                         var temps = 0;
                         var temp = 0;
-                        var checker = obj[0];
-                        obj.sort()
-                        for (i = 1; i < 5; i++) {
-                            if (abs(checker - obj[i]) == 1) { temps++; }
-                            checker = obj[i]
+                        obj.sort(function (a, b) { return b - a })
+                        for (i = 0; i < 4; i++) {
+                            if (obj[i] - obj[i + 1] == 1) {
+                                temps++;
+                            }
                         }
 
-                        if (temps >= 3) {
-                            temp = 15
-                        }
+                        if (temps >= 3) { temp = 15 }
                     }
 
                     if ($(this).attr('id') == 'LStraight') {
+                        var temp = 0;
                         var temps = 0;
-                        var checker = obj[0];
-                        obj.sort()
-                        for (i = 1; i < 5; i++) {
-                            if (abs(checker - obj[i]) == 1) { temps++; }
-                            checker = obj[i]
+                        obj.sort(function (a, b) { return b - a })
+                        for (i = 0; i < 4; i++) {
+                            if (obj[i] - obj[i + 1] == 1) {
+                                temps++;
+                            }
                         }
 
                         if (temps == 4) {
                             temp = 30
                         }
-
                     }
 
                     if ($(this).attr('id') == 'Yacht') {
                         var temps = 0;
+                        var temp = 0;
                         var checker = obj[0];
                         obj.sort()
                         for (i = 1; i < 5; i++) {
@@ -365,6 +362,7 @@
 
     <div class=gametable>
         <div class=howtoplay>How to Play</div>
+
         <div class=ok style="cursor:default">게 임 &nbsp;시 작</div>
 
         <table id=dicechoose>
@@ -391,27 +389,22 @@
             </tr>
         </table>
 
-        <img class=di id=dice6_1 val=0 c=0 src='./pics/D6_1.png'></img>
-        <img class=di id=dice6_2 val=0 c=0 src='./pics/D6_2.png'></img>
-        <img class=di id=dice6_3 val=0 c=0 src='./pics/D6_3.png'></img>
-        <img class=di id=dice6_4 val=0 c=0 src='./pics/D6_4.png'></img>
-        <img class=di id=dice6_5 val=0 c=0 src='./pics/D6_5.png'></img>
+        <img class=di id=dice6_1 src='./pics/D6_1.png'></img>
+        <img class=di id=dice6_2 src='./pics/D6_2.png'></img>
+        <img class=di id=dice6_3 src='./pics/D6_3.png'></img>
+        <img class=di id=dice6_4 src='./pics/D6_4.png'></img>
+        <img class=di id=dice6_5 src='./pics/D6_5.png'></img>
 
-        <img class=di id=dice20_1 val=0 c=0 src='./pics/D20_1.png'></img>
-        <img class=di id=dice20_2 val=0 c=0 src='./pics/D20_5.png'></img>
-        <img class=di id=dice20_3 val=0 c=0 src='./pics/D20_11.png'></img>
-        <img class=di id=dice20_4 val=0 c=0 src='./pics/D20_13.png'></img>
-        <img class=di id=dice20_5 val=0 c=0 src='./pics/D20_17.png'></img>
+        <img class=di id=dice20_1 src='./pics/D20_1.png'></img>
+        <img class=di id=dice20_2 src='./pics/D20_5.png'></img>
+        <img class=di id=dice20_3 src='./pics/D20_11.png'></img>
+        <img class=di id=dice20_4 src='./pics/D20_13.png'></img>
+        <img class=di id=dice20_5 src='./pics/D20_17.png'></img>
 
         <input class=typing type='text' placeholder="&nbsp;문자열을 입력하세요."></input>
         <button class=submit left=3>3</button>
     </div>
 
-
-    <!-- 
-    <div class=howtoplay>
-        How to Play
-    </div> -->
 
     <table class='chart' style="cursor:default">
         <tr>
@@ -462,7 +455,7 @@
         </tr>
         <tr>
             <th class='a' class='a'>+35 Bonus</th>
-            <th class='ap' id='Bonus'>0</th>
+            <th class='a' id='Bonus'>0</th>
         </tr>
         <tr>
             <th colspan="2" class='devider'>
