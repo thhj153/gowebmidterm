@@ -4,7 +4,7 @@
 <head>
     <title>고급 웹 프로그래밍 중간고사</title>
     <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="loadPage.css">
+    <link type="text/css" rel="stylesheet" href="base.css">
     </link>
     <script src="./jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="./jquery-ui.min.js">
@@ -23,6 +23,7 @@
 
             // $("div.footer").hide();
             $("div.main_title").hide();
+            $("div.main_button").hide();
 
             $(document).on("click", function (event) {
                 $("effect").animate({ top: (event.pageY - 15), left: (event.pageX - 15) }, 1, function (event) {
@@ -41,7 +42,7 @@
 
             $(document).on("dblclick", function (event) {
                 $("div.shape").animate({
-                    top: 930
+                    top: 923
                 }, 2000, 'easeOutBounce');
             });
 
@@ -50,11 +51,11 @@
                 $("div.shape").animate({ top: -80 }, 800, 'swing', function (event) {
                     $("div.shape").animate({ top: 930 }, 1800, 'easeOutBounce', function (event) {
                         $("div.main_title").fadeIn();
-                        $("div.amin_button").fadeIn();
+                        $("div.main_button").fadeIn();
                     });
                 });
                 // $("div.footer").show();
-                
+
             }, 12300)
         });
     </script>
@@ -76,25 +77,27 @@
     <div class=shape id=cir4></div>
     <div class=shape id=cir5></div>
     <div class=shape id=cir6></div>
-    
+
     <h1 class=loading style="cursor:default">L O A D I N G . . . </h1>
 
     <div class=line>
-        <h3 class=egg style="cursor:default">도형들을&nbsp;클릭해보세요.&nbsp;&nbsp;화면을&nbsp;더블클릭해보세요.</h3>
+        <h3 class=egg style="cursor:default">도형들을 클릭해보세요.&nbsp; 화면을 더블클릭해보세요.</h3>
     </div>
 
     <div class=footer style="cursor:default">
-        2015111255&nbsp;육태훈&nbsp;&nbsp;&nbsp;&nbsp;고급&nbsp;웹&nbsp;프로그래밍&nbsp;&nbsp;&nbsp;&nbsp;중간고사&nbsp;과제&nbsp;
-        <p></p>
-        본&nbsp;사이트는&nbsp;1920 x 1080&nbsp;에&nbsp;최적화되어&nbsp;있습니다.
+        ㅣ&emsp;&emsp;&emsp;2015111255 육태훈&nbsp; &nbsp; 고급 웹 프로그래밍&nbsp; &nbsp; 중간고사 과제 
+        &emsp;&emsp;&emsp;ㅣ&emsp;&emsp;&emsp;
+        이 사이트는 1920 x 1080 에 최적화되어 있습니다.&emsp;&emsp;&emsp;ㅣ
     </div>
 
     <div class=main_title style="cursor:default">
-        제 목 미 정 <div class=sub_title style="cursor:default"> Dice Simulator </div> 
+        단어로 굴리는 주사위<div class=sub_title style="cursor:default"> Roll Your Dice ! </div>
     </div>
 
-    <img class=main_button style="cursor:click"> </img>
-
+    <a href='mainPage.html'>
+        <div class=main_button style="cursor:click"> </div>
+    </a>
+    
 </body>
 
 </html>

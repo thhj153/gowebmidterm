@@ -1,0 +1,88 @@
+/* pic QuestionMark. https://www.cleanpng.com/png-question-mark-png-41220
+pic HistoryMark. https://www.hiclipart.com/free-transparent-background-png-clipart-mipau/download
+pic dicetable. https://kor.pngtree.com/freepng/vector-billiards-table_2845091.html
+pic gamezon original https://kor.pngtree.com/freepng/neon-frame_4647642.html
+pic D 6. https://www.vhv.rs/viewpic/bwTix_dice-png-icon-transparent-png/
+pic D20. https://www.blackscrollsgames.com/362284-200/ 
+pic D12. https://visualpharm.com/assets/212/Dodecahedron-595b40b75ba036ed117d7c77.svg
+pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d99d7 */
+
+#cir1 {  width: 100px;  height: 100px;  opacity: 7%;  background-color: rgb(110, 32, 235); top: 342px;  left: 352px;  z-index: -7;  border-radius: 50%;  position: absolute; animation: circle1 45s alternate-reverse;}
+#cir2 {  width: 265px;  height: 246px;  opacity: 5%;  background-color: rgb(77, 143, 136); top: 704px;  left: 621px;  z-index: -6;  border-radius: 50%;  position: absolute; animation: circle2 90s alternate-reverse;}
+#cir5 {  width: 198px;  height: 189px;  opacity: 4%;  background-color: rgb(255, 224, 166); top: 427px;  left: 1200px;  z-index: -5;  border-radius: 50%;  position: absolute; animation: circle3 150s alternate-reverse; }
+#cir6 {  width: 254px;  height: 245px;  opacity: 8%;  background-color: rgb(216, 112, 207); top: 427px;  left: 1550px;  z-index: -4;  border-radius: 50%;  position: absolute; animation: circle4 130s alternate-reverse; }
+
+@keyframes circle1{
+    0% { top: 342px; left: 352px; background-color: rgb(110, 32, 235); }
+    33% { top: 280px; left: 432px; background-color: rgb(130, 32, 235); }
+    67% { top: 382px; left: 502px; background-color: rgb(130, 82, 235); }
+    100% { top: 342px; left: 352px; background-color: rgb(110, 32, 235); }
+}
+@keyframes circle2{
+    0% { top: 704px; left: 621px; background-color: rgb(77, 143, 136); }
+    33% { top: 502px; left: 1120px; background-color: rgb(90, 143, 235); }
+    67% { top: 164px; left: 610px; background-color: rgb(130, 82, 235); }
+    100% { top: 372px; left: 621px; background-color: rgb(77, 143, 136); }
+}
+
+@keyframes circle3{
+    0% { width: 198px;  height: 189px; top: 427px; left: 1200px; background-color: rgb(255, 224, 166); }
+    33% { width: 300px; height: 300px; top: 1000px; left: 652px; background-color: rgb(255, 82, 173); }
+    67% { width: 421px; height: 412px; top: 700px; left: 321px; background-color: rgb(130, 82, 235); }
+    100% { width: 198px;  height: 189px; top: 164px; left: 621px; background-color: rgb(255, 224, 166); }
+}
+
+@keyframes circle4{
+    0% { border-radius: 50%; top: 427px; left: 1550px; background-color: rgb(216, 112, 207); }
+    33% { border-radius: 30%; top: 105px; left: 1000px; background-color: rgb(90, 143, 235); }
+    67% { border-radius: 70%;top: 402px; left: 820px; background-color: seashell }
+    100% { border-radius: 50%;top: 427px; left: 1700px; background-color: rgb(216, 112, 207); }
+}
+
+.table {
+    position: absolute;
+    background-image: url(./pics/line1.png) ;   
+    width: 1138px;
+    height: 920px;
+    left: 43%;
+    top: 50%;
+    margin-top: -460px; 
+    align-items: center;
+    /* clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%); Generated in https://bennettfeely.com/clippy/ */
+    opacity: 0.8;
+}
+
+.effect1 {
+    position: absolute;
+    background-color: rgb(255, 38, 189);
+    background: radial-gradient( aliceblue 20%, rgb(249, 72, 219) 80%);
+    width: 12px;
+    height: px;
+    left: 15%;
+    top:51px;
+    animation: effect_1 5s alternate-reverse infinite ease-in-out;
+    animation-delay: 1s;
+    opacity: 0.7;
+}
+@keyframes effect_1{
+    from {left: 15%;}
+    to {left: 115%;}
+}
+
+
+@keyframes effect_2{
+    from {left: 80%;}
+    to {left: 40%;}
+}
+.effect2 {
+    position: absolute;
+    background-color: rgb(255, 38, 189);
+    background: radial-gradient( aliceblue 20%, rgb(249, 72, 219) 80%);
+    width: 9px;
+    height: 7px;
+    left: 80%;
+    bottom:40px;
+    animation: effect_2 5s alternate-reverse infinite ease-in-out;
+    animation-delay: 1s;
+    opacity: 0.8;
+}

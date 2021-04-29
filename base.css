@@ -4,12 +4,12 @@ body.forclick {
 }
 
 div.main_title {
-    font-family: RixYeoljeongdo_Regular;
+    font-family: SEBANG_Gothic_Bold;
     color: whitesmoke;
     background-color: #214;
     background: linear-gradient(90deg, #214 20%, #020155 50%, #214 80%);
     background-blend-mode: hard-light;
-    font-size: 70px;
+    font-size: 65px;
     text-align: center;
     position: absolute;
     width : 600px;
@@ -21,9 +21,10 @@ div.main_title {
 }  /* 가운데 정렬하는 법: 출처: https://webdir.tistory.com/31 [WEBDIR] width와 margin left */
 
 div.sub_title {
-    font-family: RixYeoljeongdo_Regular;
+    font-family: SEBANG_Gothic_Bold;
     color: whitesmoke;
-    font-size: 40px;
+    margin-top: 10px;
+    font-size: 35px;
     height : 100px;
 }
 
@@ -33,24 +34,31 @@ div.line {
     position: absolute;
     top: 47%;
     animation: lines 13s ease-in forwards;
-    z-index: 10;
+    z-index: 9;
 }
 
-img.main_button {
+div.main_button {
     position: absolute;
-    width: 350px;
-    height: auto;
+    width: 337px;
+    height: 93px;
     margin-left: -175px;
     left: 50%;
-    top : 45%;
-    background-image: url(./main_button.png);
-}
+    top : 65%;
+    background-color: #214;
+    background-image: url(./pics/startgame.png);
+    z-index: 10;
+    /* background-color: aliceblue; */
+} /* https://www.artstation.com/artwork/JNQVd */
 
-img.main_button:hover {
-    background-image: url(./main_button_hover.png);
-}
+div.main_button:hover {
+    background-image: url(./pics/startgame_hover.png);
+    cursor: crosshair;
+} /* https://www.artstation.com/artwork/JNQVd */
+
 effect {
     position: absolute;
+    width: 337px;
+    height: 93px;
     width: 20px;
     height: 20px;
     background: #214;
@@ -61,8 +69,8 @@ effect {
 
 @keyframes lines {
     0% { margin-left: 49.5%; width: 1%; }
-    85% { top: 47%; margin-left: 0%; width: 100%; }
-    100% {top: 2%; margin-left: 0%; width: 100%; }
+    85% { top: 47%; margin-left: -10%; width: 120%; }
+    100% {top: 2%; margin-left: -10%; width: 120%; }
 }
 .shapes { border: 15px solid rgb(226, 197, 240); }
 
@@ -91,7 +99,7 @@ h1.loading {
     opacity: 0;
     animation: loading 1.5s ease-in-out;
     animation-iteration-count: 7;
-    z-index: 10;
+    z-index: 9;
 }
 
 @keyframes loading {
@@ -108,7 +116,7 @@ h3.egg {
     width: 600px;
     position: inherit;
     left: 50%;
-    top: -3px;
+    top: -7px;
     margin-left: -300px;
     text-align: center;
     z-index: -10;
@@ -120,14 +128,12 @@ div.footer {
     text-align: center;
     color : whitesmoke;
     position: absolute;
-    height : 5%;
+    height : 3%;
     bottom : 0%;
     left : 50%;
     width : 1000px;
     margin-left : -500px;
 }
-
-p { font-size: 4px; }
 
 @font-face {
     font-family: 'UhBeeyul';
@@ -144,9 +150,8 @@ p { font-size: 4px; }
 } /* https://noonnu.cc/font_page/225 */
 
 @font-face {
-    font-family: 'RixYeoljeongdo_Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-} /* https://noonnu.cc/font_page/630 */
-
+} /* https://noonnu.cc/font_page/656 */

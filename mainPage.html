@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>고급 웹 프로그래밍 중간고사</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="base.css">
+    </link>
+    <link type="text/css" rel="stylesheet" href="main.css">
+    </link>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+     
+    <script>
+        $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+        $('#element').on('scroll touchmove mousewheel', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }); // 스크롤 방지 코드 [출처: https://webisfree.com/2015-01-13/[자바스크립트-jquery]-스크롤-안-움직이게-막기-스크롤-고정]
+    </script>
+
+</head>
+
+<body class=forclick>
+
+    <div class=shape id=cir1></div>
+    <div class=shape id=cir2></div>
+    <div class=shape id=cir5></div>
+    <div class=shape id=cir6></div>
+
+    <div class=tool id=Qmark></div>
+    <div class=tool id=history></div>
+
+    <div class=table>
+        <div class=effect1></div>
+        <div class=effect2></div>
+    </div>
+
+    <div class=footer style="cursor:default">
+        ㅣ&emsp;&emsp;&emsp;2015111255 육태훈&nbsp; &nbsp; 고급 웹 프로그래밍&nbsp; &nbsp; 중간고사 과제
+        &emsp;&emsp;&emsp;ㅣ&emsp;&emsp;&emsp;
+        이 사이트는 1920 x 1080 에 최적화되어 있습니다.&emsp;&emsp;&emsp;ㅣ
+    </div>
+
+</body>
+
+</html>
