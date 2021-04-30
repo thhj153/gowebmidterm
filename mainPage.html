@@ -13,7 +13,7 @@
     <script type="text/javascript" src="./jquery-ui.min.js">
         // https://superkts.com/jquery/@easingEffects 에서 정보를 얻어서 jquery-ui.min.js 추가 다운로드
     </script>
-    <!-- line 25-61 초기 설정 -->
+
     <script>
         // 스크롤 방지 코드 시작
         $('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
@@ -27,18 +27,23 @@
             // $("div.footer").hide();
             var base = 0
             var left = 3
+            var howmany = 0
+            var strings = []
             var obj = [0, 0, 0, 0, 0]
             $("table.chart").hide();
             $(".typing").hide();
             $(".submit").hide();
             $("#dicechoose").hide();
+            $('#result').hide();
             $(".di").hide();
+            $("#reGame").hide();
 
-
-            $(".ok").click(function () {
+            // 초기화면 설정 완료
+            $("#letsgo").click(function () {
                 $(".ok").hide();
                 $(".howtoplay").hide();
                 $("#dicechoose").fadeIn();
+                $(".detail").hide();
             });
 
             $("#d6play").click(function () {
@@ -93,13 +98,14 @@
                 left = parseInt($(".submit").attr('left'));
                 var tempTxt = $(".typing").val();
 
+
                 if (left != 0) {
 
                     if (tempTxt.length === 0) {
 
                     } // 아무 일도 일어나지 않음
                     else { // 값 변환 하는 부분
-
+                        strings.push(tempTxt)
                         var i, j = 45189, k = 153;
 
                         for (i = 0; i < tempTxt.length; i++) {
@@ -175,9 +181,11 @@
 
             // 점수표에 값을 기록하는 부분
             $(".ap").click(function () {
+
                 if (left == 3) { } // 아무 일도 일어나지 않음
                 else if ($(this).attr('done') == 'done') { } // 아무 일도 일어나지 않음
                 else {
+                    howmany++;
                     var subtal = $('#Subtotal')
                     var total = $('#Total')
 
@@ -345,9 +353,27 @@
                     $(".di").text('')
                 }
 
-            });
+                // 게임 종료 조건 도달
+                if (howmany == 12) {
+                    $(".typing").hide();
+                    $(".submit").hide();
+                    $("#dicechoose").hide();
+                    $(".di").hide();
+                    $(".chart").css({ 'transform': 'scale(0.92, 0.92)' })
+                    $(".gametable").animate({ left: 950 }, 2000, 'easeOutExpo', function () {
+                        $("#result").fadeIn();
+                        $('#reGame').fadeIn();
+                        for (i = 0; i < strings.length; i++)
+                            $('#result').append("<span class='used'>&nbsp; &nbsp; &nbsp; - &nbsp; " + strings[i] + "</span>")
+                                
 
+
+                    })
+
+                }
+            });
         });
+
 
     </script>
 
@@ -355,17 +381,54 @@
 
 <body class="forclick">
 
+    <div id='result'>
+        사용된 문자열 <span class='used'><br></span>
+    </div>
+
+
+
     <div class=shape id=cir1></div>
     <div class=shape id=cir2></div>
     <div class=shape id=cir5></div>
     <div class=shape id=cir6></div>
 
+    <span class=detail id=howto>Yacht는 주사위로 조합을 만들어 높은 점수를 달성하는 게임입니다.
+        <p>주사위는 세 번 던질 수 있으며, 던질 때마다 마음에 드는 눈을 가진 주사위를 고정한 채 던질 수 있습니다.본 게임에서는 dice 20 으로 하는 버전까지 구현해보았습니다. 또한 문자열을 이용하여
+            주사위를 굴리기 때문에, 기억력에 따라 좋은 플레이가 가능합니다.</p>
+        주사위를 굴리는 방법은 다음과 같습니다.
+        <div align='center'> <img src="./pics/howto1.png" width='322px' height="72px"> </div>
+        위와 같이 임의의 문자열을 작성하고(어떤 문자든 무관합니다, 다만 10자 이상으로 하시는 편이 본래 게임의 재미를 느낄 수 있습니다) 숫자가 적힌 버튼을 누르면, 주사위의 값이 바뀝니다. 버튼 위의
+        숫자는 잔여 리롤(Reroll) 횟수를 나타냅니다.
+        0이 되면 득점할 수 없더라도, 더이상 굴릴 수 없고 반드시 점수판을 채워야 합니다. 점수는 원하는 칸을 클릭(위치에서 마우스 포인터가 변합니다)해 채울 수 있으며 자동으로 계산됩니다. <p></p>
+        <p></p>
+        <div align='center'>
+            <img src="./pics/howto4.png" wid='116px' height='119px'></img>
+            <img src="./pics/howto5.png" wid='116px' height='119px'></img>
+            <img src="./pics/howto6.png" wid='116px' height='119px'></img>
+        </div>
+        <p></p>버튼 위의 숫자가 3일 때를 제외하고, 주사위는 중앙과 같은 이펙트(dice 20도 같습니다)가 생기며, 리롤(Reroll)하여도 값이 변하지 않습니다. 점수판에 등록한 후에는 고정이
+        자동적으로
+        해제됩니다.
+        D20 주사위의 판정면은 2시 방향면입니다. 위 사진에서는 8이 판정면이 됩니다. D20 게임에서도, one~six을 제외하고는 같은 규칙이 적용됩니다.
+    </span>
+
+    <iframe class=detail id=howto2 src="./iframe.html"></iframe>
+    <a class=detail href="https://namu.wiki/w/요트(게임)?from=Yacht%20Dice#toc">
+        <div id=howto2sub>
+            출처 및 추가 정보: https://namu.wiki/w/요트(게임)?from=Yacht%20Dice#toc (클릭 시 이동)
+        </div>
+    </a>
+
     <div class=gametable>
         <div class=howtoplay>How to Play</div>
 
-        <div class=ok style="cursor:default">게 임 &nbsp;시 작</div>
+        <div class=ok id="letsgo" style="cursor:default">게 임 &nbsp;시 작</div>
+        <a href="./mainPage.html">
+            <div class=ok id="reGame" style="cursor:default">다 시 &nbsp;하 기</div>
+        </a>
 
         <table id=dicechoose>
+
             <tr>
                 <caption style="font-size: 25px;">원하는 주사위를 선택하면 게임이 시작됩니다.</caption>
             </tr>

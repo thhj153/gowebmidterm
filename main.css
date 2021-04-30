@@ -1,16 +1,7 @@
 /* [이미지 출처 정리]
 테이블 배경: https://www.renderhub.com/cgaxis/red-fabric-pbr-texture11,
 주사위들 : https://upload.wikimedia.org/wikipedia/commons/7/77/Platonic_Solids_Transparent.svg,
-
-
-pic QuestionMark. https://www.cleanpng.com/png-question-mark-png-41220
-pic HistoryMark. https://www.hiclipart.com/free-transparent-background-png-clipart-mipau/download
-pic dicetable. https://kor.pngtree.com/freepng/vector-billiards-table_2845091.html
-pic gamezon original https://kor.pngtree.com/freepng/neon-frame_4647642.html
-pic D 6. https://www.vhv.rs/viewpic/bwTix_dice-png-icon-transparent-png/
-pic D20. https://www.blackscrollsgames.com/362284-200/ 
-pic D12. https://visualpharm.com/assets/212/Dodecahedron-595b40b75ba036ed117d7c77.svg
-pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d99d7 */
+*/
 
 #cir1 {
     width: 100px;
@@ -291,6 +282,7 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
     margin-top: -430px;
     border-spacing: 8px;
     opacity: 0.9;
+    z-index: 10;
 }
 
 .info {
@@ -411,4 +403,70 @@ pic D 8. https://www.visualpharm.com/free-icons/octahedron-595b40b75ba036ed117d9
 .fix {
     background: radial-gradient(aliceblue 10%, crimson 40%, aliceblue 50%, crimson 70%);
     border-radius: 10%;
+}
+
+#result {
+    position: absolute;
+    text-align: center;
+    width: 900px;
+    left: 850px;
+    height: 650px;
+    top: 12%;
+    font-family: SEBANG_Gothic_Bold;
+    color: aliceblue;
+    font-size: 50px;
+    opacity: 1;
+    z-index: 11;
+}
+
+#reGame {
+    position: absolute;
+    left: 90%;
+    top: 90%;
+}
+span.used {
+    font-family: S-CoreDream-5Medium;
+    color: aliceblue;
+    text-align: left;
+    font-size: 20px;
+    opacity: 1;
+    z-index: 9;
+}
+
+#howto {
+    position: absolute;
+    width: 600px;
+    left: 260px;
+    top: 20%;
+    height: 570px;
+    font-family: S-CoreDream-5Medium;
+    color: aliceblue;
+    size: 15px;
+    opacity: 1;
+    z-index: 9;
+}
+
+#howto2 {
+    position: absolute;
+    width: 750px;
+    left: 900px;
+    height: 570px;
+    top: 23.5%;
+    font-family: S-CoreDream-5Medium;
+    color: aliceblue;
+    size: 15px;
+    opacity: 1;
+    z-index: 9;
+}
+
+#howto2sub {
+    width: 730px;
+    left: 900px;
+    height: 500px;
+    top: 20.2%;
+    position: absolute;
+    font-family: S-CoreDream-5Medium;
+    color: aliceblue;
+    font-size: 15px;
+    z-index: 9;
 }
